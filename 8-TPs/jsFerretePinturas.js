@@ -14,7 +14,7 @@ $scope.fac=function()
 }
 $scope.caf =function()
 {
-	$scope.resultado=($scope.temp * 1,8)+32;
+	$scope.resultado=($scope.temp * 9/5)+32;
 	console.log($scope.resultado);
 
 }
