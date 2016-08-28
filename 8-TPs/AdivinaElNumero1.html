@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
+			<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsAdivinaElNumero1.js"></script>
@@ -15,24 +16,24 @@
 		
 
 		</head>
-	<body>
+	<body ng-app="AdivinaNumero1" ng-controller="ControlNumero">
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 
-				<input type="text"  placeholder="Ingrese número" id="numero">
+				<input type="text" ng-model="valor" laceholder="Ingrese número" id="numero">
 				
 				<br>
-				<input type="text"  placeholder="intentos" readonly id="intentos">
+				<input type="text"  ng-model="resultado" placeholder="intentos" readonly id="intentos">
 			</form>
 			
 		</div>
 		<div class="CajaUno animated bounceInLeft">
 			
-		<button style="height:5em;"  class="MiBotonUTN"  onclick="verificar()" >Verificar</button>
+		<button style="height:5em;"  class="MiBotonUTN"  ng-Click="verificar()" >Verificar</button>
 			
-			<button  class="MiBotonUTN" onclick="comenzar()" >Comenzar</button>
+			<button  class="MiBotonUTN" ng-Click="Comenzar()" >Comenzar</button>
 
 		</div>
 

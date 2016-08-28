@@ -19,6 +19,11 @@ $scope.CalcularPrecio=function()
 	{
 		$scope.descuento = (Number($scope.precio) * 35) * 0.50;
 		$scope.resultado =calcularP() - $scope.descuento; 
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		}
 		console.log($scope.resultado);
 	}
 	// PUNTO B
@@ -26,26 +31,46 @@ $scope.CalcularPrecio=function()
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.40;
 			$scope.resultado =calcularP() - $scope.descuento; 
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		}
 		console.log($scope.resultado);
 
 	}
 	else if($scope.precio == 5 && ($scope.marca != "ArgentinaLuz" ))
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.30;
-			$scope.resultado =calcularP() - $scope.descuento;  
+		$scope.resultado =calcularP() - $scope.descuento;  
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		}
 		console.log($scope.resultado);
 	}
 	// PUNTO C
 	if($scope.precio == 4 && ($scope.marca == "ArgentinaLuz" || $scope.marca == "FelipeLamparas"))
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.25;
-				$scope.resultado =calcularP() - $scope.descuento; 
+		$scope.resultado =calcularP() - $scope.descuento;
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		} 
 		console.log($scope.resultado);
 
 	}else if($scope.precio == 4 && !($scope.marca == "ArgentinaLuz" || $scope.marca == "FelipeLamparas"))
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.20;
-				$scope.resultado =calcularP() - $scope.descuento; 
+		$scope.resultado =calcularP() - $scope.descuento; 
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		}
 		console.log($scope.resultado);
 	}
 
@@ -53,19 +78,34 @@ $scope.CalcularPrecio=function()
 	if($scope.precio == 3 && ($scope.marca == "ArgentinaLuz"))
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.15;
-			$scope.resultado =calcularP() - $scope.descuento; 
+		$scope.resultado =calcularP() - $scope.descuento; 
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		}
 		console.log($scope.resultado);
 
 	}
 	else if($scope.precio == 3 && ($scope.marca == "FelipeLamparas" ))
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.10;
-			$scope.resultado =calcularP() - $scope.descuento; 		$scope.resultado =calcularP() - $scope.descuento;  
+		$scope.resultado =calcularP() - $scope.descuento; 		$scope.resultado =calcularP() - $scope.descuento; 
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		} 
 		console.log($scope.resultado);
 	}else if($scope.precio == 3 && !($scope.marca == "ArgentinaLuz" || $scope.marca == "FelipeLamparas"))
 	{
 		$scope.descuento = ($scope.precio * 35) * 0.05;
-				$scope.resultado =calcularP() - $scope.descuento;  
+		$scope.resultado =calcularP() - $scope.descuento
+		if($scope.resultado > 120)
+		{
+			$scope.porcentaje = $scope.resultado * 0.10;
+			$scope.resultado ="IIBB Usted pago: " +$scope.resultado+ " siendo: " + $scope.porcentaje +" el impuesto que se pagó";
+		}
 		console.log($scope.resultado);
 	}
 }

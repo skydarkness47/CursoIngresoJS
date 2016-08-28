@@ -7,20 +7,40 @@ secreto del 1 al 100, en la pantalla del juego
 “Usted es un ganador!!! y en solo X intentos”.
 de no ser igual se debe informar si “falta…”  para llegar al número secreto  o si “se pasó…”  del número secreto.
 */
-var numeroSecreto; 
-var contadorIntentos;
-
-function comenzar()
+var app = angular.module('AdivinaNumero1', []);
+var num = 0;
+app.controller("ControlNumero", function($scope){
+$scope.Comenzar=function()
 {
-	//Genero el número RANDOM entre 1 y 100
-	 
-		//alert(numeroSecreto );
-	
+	$scope.numAlea = GenerarNumero();
+ 	$scope.contador =0;
+
+}
+$scope.verificar=function()
+{ 
+	console.log($scope.numAlea);
+	if($scope.valor == $scope.numAlea)
+	{
+		$scope.resultado = "usted gano con los intentos: " + $scope.contador;
+	}if($scope.valor != $scope.numAlea)
+	{
+		if($scope.valor > $scope.numAlea)
+		{
+			$scope.resta = $scope.valor - $scope.numAlea;
+			$scope.resultado = "se paso: " + $scope.resta + " para llegar al numero secreto";;
+
+		}else if($scope.valor < $scope.numAlea)
+		{
+			$scope.resta = $scope.numAlea - $scope.valor;
+			$scope.resultado = "le faltan : " + $scope.resta + " para llegar al numero secreto";
+		}
+		$scope.contador = $scope.contador +1;
+	}
+}
+function GenerarNumero()
+{
+	return  Math.round(Math.random()*100);
 
 }
 
-function verificar()
-{
-	
-	
-}
+});

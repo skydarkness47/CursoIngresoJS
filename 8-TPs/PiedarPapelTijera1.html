@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
+			<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsPiedarPapelTijera1.js"></script>
@@ -15,13 +16,19 @@
 		
 
 		</head>
-	<body onload="comenzar()">
+	
+		<body   ng-app="ppt" ng-controller="juego" ng-init="comenzar()" >
+
+		
+
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 				<center>
 					<img src="imagenes/interrogacion.jpg" >
+								<input type ="text" readonly="" ng-model="resultado"> 
+
 				</center>
 				
 			</form>
@@ -31,10 +38,9 @@
 			
 
 			
-			
-			<img class="PiedraPapelTijera animated zoomInRight " src="imagenes/piedra.jpg" onclick="piedra()">
-			<img class="PiedraPapelTijera animated zoomInUp" src="imagenes/papel.jpg" onclick="papel()">
-			<img class="PiedraPapelTijera animated zoomInLeft"  src="imagenes/tijera.jpg" onclick="tijera()">
+			<img class="PiedraPapelTijera animated zoomInRight " src="imagenes/piedra.jpg" ng-Click="piedra()">
+			<img class="PiedraPapelTijera animated zoomInUp" src="imagenes/papel.jpg" ng-Click="papel()">
+			<img class="PiedraPapelTijera animated zoomInLeft"  src="imagenes/tijera.jpg" ng-Click="tijera()">
 			
 			
 
@@ -42,6 +48,7 @@
 
 
 		</div>
+
 
 		<div class="CajaEnunciado animated bounceInLeft">
 			<h2>Enunciado:</h2>

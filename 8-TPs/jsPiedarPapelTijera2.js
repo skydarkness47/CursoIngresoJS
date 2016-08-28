@@ -1,104 +1,99 @@
-var eleccionMaquina;
-var ContadorDeEmpates=0;
-var ContadorDeGanadas=0;
-var ContadorDePerdidas=0;
-
-function comenzar()
+var app = angular.module('ppt', []);
+app.controller("juego", function($scope){
+	$scope.contG=0;
+	$scope.contP=0;
+	$scope.contE=0;
+$scope.comenzar=function()
 {
-	//Genero el número RANDOM entre 1 y 3
-	 	numeroSecreto =Math.floor( Math.random()*3)+1;
-		//alert(numeroSecreto);
-		switch(numeroSecreto)
+	if(Number($scope.contG) ==0 || Number($scope.contP) ==0 || Number($scope.contE) == 0)
+	{
+	$scope.contG=0;
+	$scope.contP=0;
+	$scope.contE=0;
+	}
+	$scope.numAlea =GenerarNumero();
+	console.log($scope.numAlea);
+
+}
+$scope.piedra=function()
+{ 
+	if($scope.numAlea==1)
+	{
+
+		$scope.resultado = "empato";
+		Contadores();
+	}else if($scope.numAlea == 2)
+	{
+		$scope.resultado="perdio";
+		Contadores();
+	}else if($scope.numAlea == 3)
+	{
+		$scope.resultado="ganó";
+		Contadores();
+	}
+	console.log($scope.resultado);
+}
+$scope.papel=function()
+{ 	
+	if($scope.numAlea==2)
+	{
+		$scope.resultado = "empato";
+		Contadores();
+	}else if($scope.numAlea == 1)
+	{
+		$scope.resultado="gano";
+		Contadores();
+	}else if($scope.numAlea == 3)
+	{
+		$scope.resultado="perdio";
+		Contadores();
+	}
+		console.log($scope.resultado);
+
+}
+
+$scope.tijera=function()
+{ 
+		if($scope.numAlea==3)
+	{
+		$scope.resultado = "empato";
+		Contadores();
+	}else if($scope.numAlea == 2)
+	{
+		$scope.resultado="gano";
+		Contadores();
+	}else if($scope.numAlea == 1)
+	{
+		$scope.resultado="perdio";
+		Contadores();
+	}
+		console.log($scope.resultado);
+
+}
+function GenerarNumero()
+{
+	return  Math.round(Math.random()*(3-1)+1);
+
+}
+function Contadores()
+{
+	if($scope.resultado == "empato")
 		{
-			case 1:
-				eleccionMaquina="piedra";
-				break;
-			case 2:
-				eleccionMaquina="papel";
-				break;
-			case 3:
-				eleccionMaquina="tijera";
-				break;
+			$scope.contE = 1 + $scope.contE;
+			$scope.empatadas ="Cantidad de empates: "+ $scope.contE; 
+			console.log($scope.empatadas);
+		}else if($scope.resultado == "gano")
+		{
+			$scope.contG = 1 + $scope.contG;
+			$scope.ganadas ="Cantidad de ganadas: "+ $scope.contG; 
+			console.log($scope.ganadas);
+
+		}else	if($scope.resultado == "perdio")
+		{
+			$scope.contP = 1 + $scope.contP;
+			$scope.perdidas ="Cantidad de perdidas: "+ $scope.contP; 
+				console.log($scope.perdidas);
 
 		}
-		//alert(eleccionMaquina);
-
-
-
-}//FIN DE LA FUNCIÓN
-function piedra()
-{
-	alert("la maquina selecciono: "+eleccionMaquina);
-	eleccionHumano="piedra";
-	if(eleccionHumano==eleccionMaquina)
-	{
-		alert("empate.");	
-		ContadorDeEmpates++;	
-	}
-	else if(eleccionMaquina=="tijera")
-	{
-		alert("vos ganastes.");
-		ContadorDeGanadas++;
-	}
-	else
-	{
-		alert("ganó la Maquina.");
-		ContadorDePerdidas++;
-	}
-
-mostarResultado();
-
-}//FIN DE LA FUNCIÓN
-function papel()
-{
-	alert("la maquina selecciono: "+eleccionMaquina);
-	eleccionHumano="papel";
-	if(eleccionHumano==eleccionMaquina)
-	{
-		alert("empate.");
-		ContadorDeEmpates++;		
-
-	}
-	else if(eleccionMaquina=="piedra")
-	{
-		alert("vos ganastes.");
-		ContadorDeGanadas++;
-	}
-	else
-	{
-		alert("ganó la Maquina.");
-		ContadorDePerdidas++;
-	}
-mostarResultado();
-}//FIN DE LA FUNCIÓN
-function tijera()
-{
-	alert("la maquina selecciono: "+eleccionMaquina);
-	eleccionHumano="tijera";
-	if(eleccionHumano==eleccionMaquina)
-	{
-		alert("empate.");
-		ContadorDeEmpates++;		
-	}
-	else if(eleccionMaquina=="papel")
-	{
-		alert("vos ganastes.");
-		ContadorDeGanadas++;
-	}
-	else
-	{
-		alert("ganó la Maquina.");
-		ContadorDePerdidas++;
-	}
-mostarResultado();
-}//FIN DE LA FUNCIÓN
-
-function mostarResultado()
-{
-
-document.getElementById('empatadas').value=ContadorDeEmpates + " partidas empatadas.";
-document.getElementById('perdidas').value=ContadorDePerdidas + " partidas perdidas.";
-document.getElementById('ganadas').value=ContadorDeGanadas + " partidas ganadas.";
-
-comenzar();
 }
+});
