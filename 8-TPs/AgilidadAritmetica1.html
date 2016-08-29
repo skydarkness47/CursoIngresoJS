@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
+			<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsAgilidadAritmetica1.js"></script>
@@ -15,21 +16,21 @@
 		
 
 		</head>
-	<body onload="comenzar()">
+	<body ng-app="Agilidad1" ng-controller="juego" ng-init="comenzar()">
 		<div class="CajaUno animated bounceInDown">
 			
 
-			<input type="text" readonly id="PrimerNumero">
-			<input type="text" readonly id="Operador">
-			<input type="text" readonly id="SegundoNumero">
+			<input type="text" readonly ng-model="n1" id="PrimerNumero">
+			<input type="text" readonly ng-model="operador" id="Operador">
+			<input type="text" readonly ng-model="n2" id="SegundoNumero">
 			<form id="FormIngreso">
-				<input type="text"  id="Respuesta">
+				<input type="text" ng-model="respUsuario" id="Respuesta">
 				<center>
-					<img src="imagenes/interrogacion.jpg" >
+					<img src="imagenes/interrogacion.jpg" ng-Click="comenzar()" >
 				</center>
 				
 			</form>
-			<button  class="MiBotonUTN" onclick="Responder()" >Aceptar</button>
+			<button  class="MiBotonUTN" ng-Click="operar()" >Aceptar</button>
 		</div>
 		<div class="CajaUno animated bounceInLeft">
 			
