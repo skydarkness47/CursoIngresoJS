@@ -8,14 +8,15 @@
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
-
+		<!--final de Estilos-->
+			<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsRisingBTL.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body>
+	<body ng-app="risign" ng-controller="carga">
 		<div class="CajaUno animated bounceInDown">
 			
 		
@@ -36,7 +37,7 @@
 		<div class="CajaUno animated bounceInLeft">
 			
 			
-			<button   class="MiBotonUTN" onclick="ComenzarIngreso()" >Comenzar ingreso</button>
+			<button   class="MiBotonUTN" ng-Click="ComenzarIngreso()" >Comenzar ingreso</button>
 			
 
 		</div>
